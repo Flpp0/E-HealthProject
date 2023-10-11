@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("/Users/filippo/Desktop/E-HealthProjectData/Project Data/dataset_project_eHealth20232024.csv")
+df = pd.read_csv("/Users/filippo/ScrivaniaLocale/E-HealthProject/originalDataset.csv")
 print(df.shape)
 df.drop_duplicates(inplace=True)
 print(df.shape) # Dropped 10 duplicates
@@ -84,7 +84,11 @@ df_heas_12.fillna(method='bfill',inplace=True)
 df_heas_13 = df['heas_13']
 df_heas_13.fillna(method='bfill',inplace=True)
 
+df.drop(axis=1,labels=["heas_1","heas_2","heas_3","heas_4","heas_5","heas_6","heas_7","heas_8","heas_9",
+                       "heas_10","heas_11","heas_12","heas_13"],inplace=True)
+
 print(df.isna().sum())
 print('Total numeber of missing values: ', df.isna().sum().sum())
 
-df.to_csv("/Users/filippo/Desktop/E-HealthProjectData/Project Data/dataset_project_eHealth.csv")
+df.to_csv("/Users/filippo/ScrivaniaLocale/E-HealthProject/dataset.csv")
+
