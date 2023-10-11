@@ -44,9 +44,6 @@ df_gad_6.fillna(method='bfill',inplace=True)
 df_gad_7 = df['gad_7']
 df_gad_7.fillna(method='ffill',inplace=True)
 
-df.drop(axis=1,labels=["ccs_1","ccs_2","ccs_3","ccs_4","ccs_5","ccs_6","ccs_7","ccs_8","ccs_9",
-                       "ccs_10","ccs_11","ccs_12"],inplace=True)
-
 # Removing questionnaire not used
 
 values_eheals_1 = list(df.loc[:,'eheals_1'])
@@ -84,8 +81,8 @@ df_heas_12.fillna(method='bfill',inplace=True)
 df_heas_13 = df['heas_13']
 df_heas_13.fillna(method='bfill',inplace=True)
 
-df.drop(axis=1,labels=["heas_1","heas_2","heas_3","heas_4","heas_5","heas_6","heas_7","heas_8","heas_9",
-                       "heas_10","heas_11","heas_12","heas_13"],inplace=True)
+df.fillna(method='ffill',inplace=True)
+
 
 print(df.isna().sum())
 print('Total numeber of missing values: ', df.isna().sum().sum())
