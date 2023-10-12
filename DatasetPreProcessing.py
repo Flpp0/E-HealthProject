@@ -87,5 +87,7 @@ df.fillna(method='ffill',inplace=True)
 print(df.isna().sum())
 print('Total numeber of missing values: ', df.isna().sum().sum())
 
+df.reset_index(inplace=True) # Resetting the index counting for the missing values
+
 df.to_csv("/Users/filippo/ScrivaniaLocale/E-HealthProject/dataset.csv")
 
